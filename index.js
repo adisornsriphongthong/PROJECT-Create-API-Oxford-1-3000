@@ -1,16 +1,16 @@
-const express = require('express')
-require('dotenv').config()
 
-const app = express()
-const port = process.env.port || 3000
+const express = require('express');
+const app = express();
+require('dotenv').config();
+const port = process.env.PORT || 3000; // Use 3000 as a default if PORT is not defined in the environment variables
 
 app.get('/', (req, res) => {
-    res.send('hello world')
-})
+    res.json({
+        'hello': 'world'
+    });
+});
 
 app.listen(port, '0.0.0.0', (err) => {
-    if(err) throw err
-    console.log('The server is running on port ' + port)
-})
-
-
+    if (err) throw err;
+    console.log('The server is running on port ' + port);
+});
