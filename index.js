@@ -2,7 +2,12 @@ const express = require('express');
 const { google } = require('googleapis');
 const { forms } = require('googleapis/build/src/apis/forms');
 const app = express();
+const cors = require('cors');
+
 require('dotenv').config();
+app.use(cors())
+
+
 const port = process.env.PORT || 3000; // Use 3000 as a default if PORT is not defined in the environment variables
 
 async function getAuthSheets() {
